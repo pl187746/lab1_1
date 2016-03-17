@@ -14,11 +14,11 @@ public class ProductData {
 		this.productType = productType;
 	}
 
-	public String productId;
-	public BigDecimal productPrice;
-	public String productName;
-	public Date productSnapshotDate;
-	public String productType;
+	public final String productId;
+	public final BigDecimal productPrice;
+	public final String productName;
+	public final Date productSnapshotDate;
+	public final String productType;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
