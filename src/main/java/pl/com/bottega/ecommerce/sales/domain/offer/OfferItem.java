@@ -99,7 +99,7 @@ public class OfferItem {
 		result = prime * result + ((productData == null) ? 0 : productData.hashCode());
 		result = prime * result + quantity;
 		result = prime * result
-				+ ((totalCost.value == null) ? 0 : totalCost.value.hashCode());
+				+ ((totalCost == null) ? 0 : totalCost.hashCode());
 		return result;
 	}
 
@@ -124,10 +124,10 @@ public class OfferItem {
 			return false;
 		if (quantity != other.quantity)
 			return false;
-		if (totalCost.value == null) {
-			if (other.totalCost.value != null)
+		if (totalCost == null) {
+			if (other.totalCost != null)
 				return false;
-		} else if (!totalCost.value.equals(other.totalCost.value))
+		} else if (!totalCost.equals(other.totalCost))
 			return false;
 		return true;
 	}
