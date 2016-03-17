@@ -20,16 +20,7 @@ import java.util.Date;
 
 public class OfferItem {
 
-	// product
-	private String productId;
-
-	private BigDecimal productPrice;
-
-	private String productName;
-
-	private Date productSnapshotDate;
-
-	private String productType;
+	private ProductData productData = new ProductData();
 
 	private int quantity;
 
@@ -50,11 +41,11 @@ public class OfferItem {
 	public OfferItem(String productId, BigDecimal productPrice, String productName,
 			Date productSnapshotDate, String productType, int quantity,
 			BigDecimal discount, String discountCause) {
-		this.productId = productId;
-		this.productPrice = productPrice;
-		this.productName = productName;
-		this.productSnapshotDate = productSnapshotDate;
-		this.productType = productType;
+		this.productData.productId = productId;
+		this.productData.productPrice = productPrice;
+		this.productData.productName = productName;
+		this.productData.productSnapshotDate = productSnapshotDate;
+		this.productData.productType = productType;
 
 		this.quantity = quantity;
 		this.discount = discount;
@@ -69,23 +60,23 @@ public class OfferItem {
 	}
 
 	public String getProductId() {
-		return productId;
+		return productData.productId;
 	}
 	
 	public BigDecimal getProductPrice() {
-		return productPrice;
+		return productData.productPrice;
 	}
 	
 	public String getProductName() {
-		return productName;
+		return productData.productName;
 	}
 	
 	public Date getProductSnapshotDate() {
-		return productSnapshotDate;
+		return productData.productSnapshotDate;
 	}
 	
 	public String getProductType() {
-		return productType;
+		return productData.productType;
 	}
 
 	public BigDecimal getTotalCost() {
@@ -114,11 +105,11 @@ public class OfferItem {
 		int result = 1;
 		result = prime * result
 				+ ((discount == null) ? 0 : discount.hashCode());
-		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
-		result = prime * result + ((productPrice == null) ? 0 : productPrice.hashCode());
+		result = prime * result + ((productData.productName == null) ? 0 : productData.productName.hashCode());
+		result = prime * result + ((productData.productPrice == null) ? 0 : productData.productPrice.hashCode());
 		result = prime * result
-				+ ((productId == null) ? 0 : productId.hashCode());
-		result = prime * result + ((productType == null) ? 0 : productType.hashCode());
+				+ ((productData.productId == null) ? 0 : productData.productId.hashCode());
+		result = prime * result + ((productData.productType == null) ? 0 : productData.productType.hashCode());
 		result = prime * result + quantity;
 		result = prime * result
 				+ ((totalCost == null) ? 0 : totalCost.hashCode());
@@ -139,22 +130,22 @@ public class OfferItem {
 				return false;
 		} else if (!discount.equals(other.discount))
 			return false;
-		if (productName == null) {
-			if (other.productName != null)
+		if (productData.productName == null) {
+			if (other.productData.productName != null)
 				return false;
-		} else if (!productName.equals(other.productName))
+		} else if (!productData.productName.equals(other.productData.productName))
 			return false;
-		if (productPrice == null) {
-			if (other.productPrice != null)
+		if (productData.productPrice == null) {
+			if (other.productData.productPrice != null)
 				return false;
-		} else if (!productPrice.equals(other.productPrice))
+		} else if (!productData.productPrice.equals(other.productData.productPrice))
 			return false;
-		if (productId == null) {
-			if (other.productId != null)
+		if (productData.productId == null) {
+			if (other.productData.productId != null)
 				return false;
-		} else if (!productId.equals(other.productId))
+		} else if (!productData.productId.equals(other.productData.productId))
 			return false;
-		if (productType != other.productType)
+		if (productData.productType != other.productData.productType)
 			return false;
 		if (quantity != other.quantity)
 			return false;
@@ -174,22 +165,22 @@ public class OfferItem {
 	 * @return
 	 */
 	public boolean sameAs(OfferItem other, double delta) {
-		if (productName == null) {
-			if (other.productName != null)
+		if (productData.productName == null) {
+			if (other.productData.productName != null)
 				return false;
-		} else if (!productName.equals(other.productName))
+		} else if (!productData.productName.equals(other.productData.productName))
 			return false;
-		if (productPrice == null) {
-			if (other.productPrice != null)
+		if (productData.productPrice == null) {
+			if (other.productData.productPrice != null)
 				return false;
-		} else if (!productPrice.equals(other.productPrice))
+		} else if (!productData.productPrice.equals(other.productData.productPrice))
 			return false;
-		if (productId == null) {
-			if (other.productId != null)
+		if (productData.productId == null) {
+			if (other.productData.productId != null)
 				return false;
-		} else if (!productId.equals(other.productId))
+		} else if (!productData.productId.equals(other.productData.productId))
 			return false;
-		if (productType != other.productType)
+		if (productData.productType != other.productData.productType)
 			return false;
 
 		if (quantity != other.quantity)
