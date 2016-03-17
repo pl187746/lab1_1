@@ -48,6 +48,7 @@ public class OfferItem {
 
 		this.totalCost.value = productPrice.value
 				.multiply(new BigDecimal(quantity)).subtract(discountValue);
+		this.totalCost.currency = productPrice.currency;
 	}
 
 	public String getProductId() {
