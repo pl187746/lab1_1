@@ -24,7 +24,7 @@ public class OfferItem {
 
 	private int quantity;
 
-	private Money totalCost = new Money();
+	private Money totalCost;
 
 	private DiscountData discountData;
 
@@ -46,9 +46,8 @@ public class OfferItem {
 		if (discount != null)
 			discountValue = discountValue.subtract(discount.value);
 
-		this.totalCost.value = productPrice.value
-				.multiply(new BigDecimal(quantity)).subtract(discountValue);
-		this.totalCost.currency = productPrice.currency;
+		this.totalCost = new Money(productPrice.value
+				.multiply(new BigDecimal(quantity)).subtract(discountValue), productPrice.currency);
 	}
 
 	public String getProductId() {
