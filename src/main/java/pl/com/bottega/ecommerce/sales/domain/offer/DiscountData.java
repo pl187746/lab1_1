@@ -12,6 +12,4 @@ public class DiscountData {
 		this.discount = discount;
 	}
 
-	public DiscountData() {
-	}
 }
