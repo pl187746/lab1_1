@@ -24,9 +24,7 @@ public class OfferItem {
 
 	private int quantity;
 
-	private BigDecimal totalCost;
-
-	private String currency;
+	private Money totalCost = new Money();
 
 	private DiscountData discountData;
 
@@ -48,7 +46,7 @@ public class OfferItem {
 		if (discount != null)
 			discountValue = discountValue.subtract(discount);
 
-		this.totalCost = productPrice
+		this.totalCost.value = productPrice
 				.multiply(new BigDecimal(quantity)).subtract(discountValue);
 	}
 
@@ -73,11 +71,11 @@ public class OfferItem {
 	}
 
 	public BigDecimal getTotalCost() {
-		return totalCost;
+		return totalCost.value;
 	}
 
 	public String getTotalCostCurrency() {
-		return currency;
+		return totalCost.currency;
 	}
 
 	public BigDecimal getDiscount() {
@@ -101,7 +99,7 @@ public class OfferItem {
 		result = prime * result + ((productData == null) ? 0 : productData.hashCode());
 		result = prime * result + quantity;
 		result = prime * result
-				+ ((totalCost == null) ? 0 : totalCost.hashCode());
+				+ ((totalCost.value == null) ? 0 : totalCost.value.hashCode());
 		return result;
 	}
 
@@ -126,10 +124,10 @@ public class OfferItem {
 			return false;
 		if (quantity != other.quantity)
 			return false;
-		if (totalCost == null) {
-			if (other.totalCost != null)
+		if (totalCost.value == null) {
+			if (other.totalCost.value != null)
 				return false;
-		} else if (!totalCost.equals(other.totalCost))
+		} else if (!totalCost.value.equals(other.totalCost.value))
 			return false;
 		return true;
 	}
@@ -152,12 +150,12 @@ public class OfferItem {
 			return false;
 
 		BigDecimal max, min;
-		if (totalCost.compareTo(other.totalCost) > 0) {
-			max = totalCost;
-			min = other.totalCost;
+		if (totalCost.value.compareTo(other.totalCost.value) > 0) {
+			max = totalCost.value;
+			min = other.totalCost.value;
 		} else {
-			max = other.totalCost;
-			min = totalCost;
+			max = other.totalCost.value;
+			min = totalCost.value;
 		}
 
 		BigDecimal difference = max.subtract(min);
