@@ -20,6 +20,4 @@ public class ProductData {
 	public Date productSnapshotDate;
 	public String productType;
 
-	public ProductData() {
-	}
 }
