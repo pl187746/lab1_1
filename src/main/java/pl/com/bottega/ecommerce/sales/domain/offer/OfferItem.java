@@ -101,11 +101,7 @@ public class OfferItem {
 		int result = 1;
 		result = prime * result
 				+ ((discount == null) ? 0 : discount.hashCode());
-		result = prime * result + ((productData.productName == null) ? 0 : productData.productName.hashCode());
-		result = prime * result + ((productData.productPrice == null) ? 0 : productData.productPrice.hashCode());
-		result = prime * result
-				+ ((productData.productId == null) ? 0 : productData.productId.hashCode());
-		result = prime * result + ((productData.productType == null) ? 0 : productData.productType.hashCode());
+		result = prime * result + ((productData == null) ? 0 : productData.hashCode());
 		result = prime * result + quantity;
 		result = prime * result
 				+ ((totalCost == null) ? 0 : totalCost.hashCode());
