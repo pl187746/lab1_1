@@ -8,4 +8,10 @@ public class Money {
 
 	public Money() {
 	}
+
+	public Money(BigDecimal value, String currency) {
+		super();
+		this.value = value;
+		this.currency = currency;
+	}
 }
