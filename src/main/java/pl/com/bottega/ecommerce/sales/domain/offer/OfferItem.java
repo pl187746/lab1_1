@@ -126,22 +126,10 @@ public class OfferItem {
 				return false;
 		} else if (!discount.equals(other.discount))
 			return false;
-		if (productData.productName == null) {
-			if (other.productData.productName != null)
+		if (productData == null) {
+			if (other.productData != null)
 				return false;
-		} else if (!productData.productName.equals(other.productData.productName))
-			return false;
-		if (productData.productPrice == null) {
-			if (other.productData.productPrice != null)
-				return false;
-		} else if (!productData.productPrice.equals(other.productData.productPrice))
-			return false;
-		if (productData.productId == null) {
-			if (other.productData.productId != null)
-				return false;
-		} else if (!productData.productId.equals(other.productData.productId))
-			return false;
-		if (productData.productType != other.productData.productType)
+		} else if (!productData.equals(other.productData))
 			return false;
 		if (quantity != other.quantity)
 			return false;
@@ -161,22 +149,10 @@ public class OfferItem {
 	 * @return
 	 */
 	public boolean sameAs(OfferItem other, double delta) {
-		if (productData.productName == null) {
-			if (other.productData.productName != null)
+		if (productData == null) {
+			if (other.productData != null)
 				return false;
-		} else if (!productData.productName.equals(other.productData.productName))
-			return false;
-		if (productData.productPrice == null) {
-			if (other.productData.productPrice != null)
-				return false;
-		} else if (!productData.productPrice.equals(other.productData.productPrice))
-			return false;
-		if (productData.productId == null) {
-			if (other.productData.productId != null)
-				return false;
-		} else if (!productData.productId.equals(other.productData.productId))
-			return false;
-		if (productData.productType != other.productData.productType)
+		} else if (!productData.equals(other.productData))
 			return false;
 
 		if (quantity != other.quantity)
