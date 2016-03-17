@@ -20,7 +20,7 @@ import java.util.Date;
 
 public class OfferItem {
 
-	private ProductData productData = new ProductData();
+	private ProductData productData;
 
 	private int quantity;
 
@@ -41,11 +41,7 @@ public class OfferItem {
 	public OfferItem(String productId, BigDecimal productPrice, String productName,
 			Date productSnapshotDate, String productType, int quantity,
 			BigDecimal discount, String discountCause) {
-		this.productData.productId = productId;
-		this.productData.productPrice = productPrice;
-		this.productData.productName = productName;
-		this.productData.productSnapshotDate = productSnapshotDate;
-		this.productData.productType = productType;
+		this.productData = new ProductData(productId, productPrice, productName, productSnapshotDate, productType);
 
 		this.quantity = quantity;
 		this.discount = discount;
